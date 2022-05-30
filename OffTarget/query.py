@@ -161,7 +161,6 @@ class QuerySubclass:
             while True:
                 if count >= referenceEnd: break
                 count += 1
-                #interestBA <<= 1
                 bitArray >>= 1
                 
                 if interestBA != interestBA & bitArray: 
@@ -169,11 +168,15 @@ class QuerySubclass:
 
                 #Adjust Seed Length
                 stop = referenceEnd - count
-                start = stop - self.length
-                if reference_fragment: 
-                    if start < MAX_LENGTH:
-                        continue
+                start = stop - SEED_LENGTH  - s.pos
+                stop = start + self.length
+                #start = stop - self.length
+                #if reference_fragment: 
+                #    if start < MAX_LENGTH:
+                #        continue
+                
                 if start < 0: continue
+                if stop > referenceEnd: continue
                 if stop - start < self.length: continue
 
                 cacheValue = 1 << self.length
