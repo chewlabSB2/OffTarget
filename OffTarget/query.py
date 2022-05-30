@@ -508,7 +508,7 @@ def processSearch6(args, queryList, Reference, queue, processNum, lock, mm = MAX
             check_alive(queue)
         r.BFdestructor()
 
-    logger.debug(processNum, "Completed Query Search!")
+    logger.debug(f"{processNum} Completed Query Search!")
     del Reference
     for c, q in enumerate(queryList):
         length = q.length
@@ -537,7 +537,7 @@ def processSearch6(args, queryList, Reference, queue, processNum, lock, mm = MAX
 
         del q
 
-    logger.debug(processNum, "Completed Refined Search!")
+    logger.debug(f"{processNum} Completed Refined Search!")
     queue.put("Complete")
 
 def multiSearch(args, query, referenceList):
