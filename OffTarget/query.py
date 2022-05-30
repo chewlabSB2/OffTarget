@@ -168,13 +168,13 @@ class QuerySubclass:
 
                 #Adjust Seed Length
                 stop = referenceEnd - count
-                start = stop - SEED_LENGTH  - s.pos
+                start = stop - SEED_LENGTH  - s.pos + 1
                 stop = start + self.length
                 #start = stop - self.length
                 #if reference_fragment: 
                 #    if start < MAX_LENGTH:
                 #        continue
-                
+
                 if start < 0: continue
                 if stop > referenceEnd: continue
                 if stop - start < self.length: continue
